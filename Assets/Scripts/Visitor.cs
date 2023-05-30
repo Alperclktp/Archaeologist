@@ -16,6 +16,8 @@ public class Visitor : MonoBehaviour
     [TabGroup("References")][SerializeField] GameObject currentBone;
     [TabGroup("References")][SerializeField] GameObject currentEmptyBoard;
 
+    [TabGroup("References")][SerializeField] GameObject questionMarkImage;
+
     [FoldoutGroup("Debug")][SerializeField] private bool isVisiting;
     [FoldoutGroup("Debug")][SerializeField] private bool isWalking;
     [FoldoutGroup("Debug")][SerializeField] private bool isBuying;
@@ -39,6 +41,8 @@ public class Visitor : MonoBehaviour
         {
             StartCoroutine(IEVisitMuseumEmptyBoard());
         }
+
+        exitPos = GameObject.Find("ExitPos").transform;
     }
 
     private void Update()
@@ -61,6 +65,8 @@ public class Visitor : MonoBehaviour
 
         while (museumManager.museumList.Count != 0)
         {
+            questionMarkImage.SetActive(false);
+
             currentEmptyBoard = null;
 
             int randomIndex = Random.Range(0, museumManager.museumList.Count);
@@ -90,6 +96,8 @@ public class Visitor : MonoBehaviour
                 ReceiveMoney(currentBone);
 
                 Destroy(currentBone);
+
+                Destroy(VFXManager.SpawnEffect(VFXType.MoneyEffect, transform.position, Quaternion.identity), 1);
 
                 museumManager.museumList.RemoveAt(randomIndex);
 
@@ -150,6 +158,8 @@ public class Visitor : MonoBehaviour
         yield return new WaitUntil(() => Vector3.Distance(transform.position, targetPosition) <= stoppingDistance);
 
         isWalking = false;
+
+        questionMarkImage.SetActive(true);
 
         yield return new WaitUntil(() => museumManager.museumList.Count == 0);
 

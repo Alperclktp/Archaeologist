@@ -34,6 +34,8 @@ public class Museum : MonoBehaviour
                 boneHolderPoint.transform.GetChild(0).GetComponent<BoxCollider>().isTrigger = true;
 
                 MuseumManager.Instance.museumList.Add(obj);
+
+                Destroy(VFXManager.SpawnEffect(VFXType.ConfettiEffect, transform.position, Quaternion.Euler(-90f, 0f, 0f)),1.3f);
             }); 
         }
     }

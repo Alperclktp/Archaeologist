@@ -44,6 +44,11 @@ public class BuyLandArea : MonoBehaviour
         progressBar[1].fillAmount = Mathf.InverseLerp(0.25f, 0.5f, fill);
         progressBar[2].fillAmount = Mathf.InverseLerp(0.5f, 0.75f, fill);
         progressBar[3].fillAmount = Mathf.InverseLerp(0.75f, 1f, fill);
+
+        if(fill == 0.95f)
+        {
+            Destroy(VFXManager.SpawnEffect(VFXType.BuyAreaEffect, transform.position, Quaternion.identity), 1.3f);
+        }
     }
 
     private void SetProgressBarColor()

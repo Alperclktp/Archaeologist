@@ -76,5 +76,8 @@ public class VFXGroup
 public enum VFXType
 {
    SoilEffect,
-   SoilScanRippleEffect
+   SoilScanRippleEffect,
+   MoneyEffect,
+   ConfettiEffect,
+   BuyAreaEffect
 }

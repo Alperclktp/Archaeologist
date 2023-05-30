@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a89c31ae5a7fd47b9a04deeee5739d, type: 3}
+  m_Name: MoneyParticleEffect
+  m_EditorClassIdentifier: 
+  type: 2
+  prefab: {fileID: 194470149574796686, guid: cfd4c202987b7fd48bb0785c630b7932, type: 3}
